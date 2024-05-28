@@ -1,6 +1,4 @@
-
 import { Sequelize } from "sequelize-typescript";
-
 
 export const sequelize = new Sequelize({
   database: "task_proyect",
@@ -10,6 +8,12 @@ export const sequelize = new Sequelize({
   host: "dpg-cpakv5n109ks73apvecg-a.oregon-postgres.render.com",
   logging: false,
   models: [],
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // Ajusta esto según sea necesario; puede ser true si usas un certificado autofirmado
+    },
+  },
 });
 async function connectionDB() {
   try {
@@ -19,4 +23,4 @@ async function connectionDB() {
     console.error("Unable to connect to the database:", error);
   }
 }
-export default connectionDB
+export default connectionDB;
