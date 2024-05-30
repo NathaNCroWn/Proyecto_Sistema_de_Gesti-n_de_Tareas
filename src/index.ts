@@ -2,14 +2,17 @@ import express from "express";
 import server from "./server";
 import connectionDB from "./config/connection";
 
-
 const appi = express();
+const bcryptjs = require("bcryptjs")
+//middlewares
 appi.use(express.json());
 
+//Puerto de conexion
 const PORT = 3000;
 
+//conexion base de datos.
 connectionDB();
 
 server.listen(PORT, () => {
-  console.log(`Prueba de api corriendo en le puerto ${PORT}`);
+  console.log(`Api corriendo en le puerto ${PORT}`);
 });

@@ -3,7 +3,7 @@ import router from "./router";
 
 const server = express();
 
-server.use("/api/tareas", router);
 server.use(express.json());
+server.use("/api/", router);
 
 export default server;
