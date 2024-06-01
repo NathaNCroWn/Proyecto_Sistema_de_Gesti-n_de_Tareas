@@ -3,7 +3,7 @@ import server from "./server";
 import connectionDB from "./config/connection";
 
 const appi = express();
-const bcryptjs = require("bcryptjs")
+
 //middlewares
 appi.use(express.json());
 
