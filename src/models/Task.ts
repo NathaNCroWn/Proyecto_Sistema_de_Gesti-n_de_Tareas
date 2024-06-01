@@ -1,3 +1,4 @@
+import User from "./User";
 import {
   Table,
   Model,
@@ -5,7 +6,7 @@ import {
   DataType,
   ForeignKey,
 } from "sequelize-typescript";
-import User from "./User";
+
 
 @Table({
   tableName: "tasks",
@@ -16,7 +17,7 @@ export default class Task extends Model {
     allowNull: false,
   })
   title: string;
-
+ 
   @Column({
     type: DataType.TEXT,
     allowNull: true,
@@ -30,10 +31,10 @@ export default class Task extends Model {
   expirationDate: Date;
 
   @Column({
-    type: DataType.BOOLEAN,
+    type: DataType.STRING,
     allowNull: false,
   })
-  state: boolean;
+  state: string;
 
   @ForeignKey(() => User)
   @Column({
